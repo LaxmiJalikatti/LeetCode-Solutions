@@ -11,7 +11,7 @@
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
-        stack<int>st;
+        /*stack<int>st;
         if(head==NULL){
             return NULL;
         }
@@ -27,6 +27,16 @@ public:
             st.pop();
             temp1=temp1->next;
         }
-        return head;
+        return head;*/
+
+        ListNode*temp=head;
+        ListNode*prev=NULL;
+        while(temp!=NULL){
+            ListNode*front=temp->next;
+            temp->next=prev;
+            prev=temp;
+            temp=front;
+        }
+        return prev;
     }
 };
